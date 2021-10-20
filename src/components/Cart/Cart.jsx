@@ -26,7 +26,7 @@ export default function Cart() {
   const handleShow = () => setShow(true)
   const [show2, setShow2] = useState(success)
   const handleClose2 = () => setShow2(false)
-  const [show3, setShow3] = useState(success)
+  const [show3, setShow3] = useState(false)
   const handleShow3 = () => setShow3(true)
   const handleClose3 = () => setShow3(false)
   const discount = 1234
@@ -249,9 +249,9 @@ export default function Cart() {
                           onClick={async () => {
                             const pr = 1000
                             const pay = await instance.post(`/momo/payment/transaction/${pr}`)
+                            handleClose3()
                             window.open(pay.data.payUrl, '_self')
                             dispatch(resetCart())
-                            handleClose3()
                           }}
                         >
                           Confirm
