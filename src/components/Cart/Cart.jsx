@@ -353,7 +353,7 @@ export default function Cart() {
                           dispatch(resetCart())
                           dispatch(setUser({ ...currentUser, history: respShipping.data.list_order }))
                           if (checked === 'momo') {
-                            const pr = price
+                            const pr = 1000
                             const pay = await instance.post(`/momo/payment/transaction/${pr}`)
                             dispatch(resetCart())
                             handleClose5()
